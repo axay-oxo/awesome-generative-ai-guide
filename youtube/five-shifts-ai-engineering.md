@@ -1,6 +1,6 @@
 # AI Engineering Has Changed: The 5 Concepts You Need in 2026
 
-[Watch on YouTube](https://www.youtube.com/watch?v=CoIxe4aGCpg) · 2026-08-28
+[Watch on YouTube](https://www.youtube.com/watch?v=CoIxe4aGCpg) · 2026-08-27
 
 ![The 5 shifts in AI engineering, and how each layer evolved from the previous one](images/five-shifts-ai-engineering.png)
 
@@ -10,24 +10,29 @@
 
 - **Shift 1, prompt engineering**: how to talk to the model, why it became a field, and why the model companies trained the need for it away
 - **Shift 2, context engineering**: limited context windows, stateless models, context rot, and the retrieval and memory work that came out of it
-- **Shift 3, harness engineering**: the operating system around the model, so file systems, sandboxes, logging, access control, and subagents
-- **Shift 4, loop engineering**: the 5 parts of a loop, and a price monitor you can run today with one instruction
-- **Shift 5, graph engineering**: parallel branches, merge points, and a separate critic, shown through an article writing pipeline
-- **How they connect**: which shifts solved a new problem, which are optimisations inside a layer that already exists, and how to place the next term that shows up
+- **Shift 3, harness engineering**: the operating system around the model, so file systems, sandboxes, logging, access boundaries, and subagents
+- **Shift 4, loop engineering**: the 5 parts of a loop, plus a live price tracking loop built in Claude Code with `/loop`
+- **Shift 5, graph engineering**: a live graph in Claude Code, 3 researchers in parallel merging into an outline, a drafter, and a separate critic
+- **How they connect**: which shifts solved a new problem, which are optimisations inside a harness that already exists, and 2 questions for placing the next term that shows up
 
 ## Resources
 
-### Go deeper on each shift
+### Loop engineering, the resources mentioned in the video
+
+- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/), the essay that named it, and [Own the Outer Loop](https://addyosmani.com/blog/own-the-outer-loop/) on the difference between the agent's inner loop and the one you are running by hand
+- [What is loop engineering?](https://www.ibm.com/think/topics/loop-engineering) for a shorter overview
+- [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) for what changes when a loop has to survive hours instead of minutes
+
+### Go deeper on the other shifts
 
 - Prompt engineering: [Anthropic's prompt engineering overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - Context engineering: [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and [Context Rot](https://research.trychroma.com/context-rot)
 - Harness engineering: [The importance of agent harness in 2026](https://www.philschmid.de/agent-harness-2026) and [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html)
-- Loop engineering: [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) and [Own the Outer Loop](https://addyosmani.com/blog/own-the-outer-loop/)
 - Graph engineering: [Coordination as an architectural layer for LLM-based multi-agent systems](https://arxiv.org/pdf/2605.03310)
 
 ### The prompts from the video
 
-- The price monitor loop and the article writing graph are both in the transcript below, in full, ready to copy.
+- The price tracking loop and the article research graph are both in the transcript below, in full, ready to copy.
 
 ### LevelUp Labs
 
@@ -40,193 +45,120 @@
 
 ## Sources
 
-- Bloomberg, *"AI 'Prompt Engineer' Jobs Pay Up to $335,000"*, 29 March 2023, for the salaries and the hiring wave around prompting. [bloomberg.com](https://www.bloomberg.com/news/articles/2023-03-29/ai-chatgpt-related-prompt-engineer-jobs-pay-up-to-335-000)
-- Reuters, *"ChatGPT sets record for fastest-growing user base"*, 2 February 2023, for how fast people met one after the November 2022 launch: an estimated 100 million monthly users within about 2 months. [reuters.com](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/)
+- Bloomberg, *"AI 'Prompt Engineer' Jobs Pay Up to $335,000"*, 29 March 2023, for the salaries in the news and the hiring wave around prompting. [bloomberg.com](https://www.bloomberg.com/news/articles/2023-03-29/ai-chatgpt-related-prompt-engineer-jobs-pay-up-to-335-000)
 - Wei et al., *"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"*, 2022. [arxiv.org](https://arxiv.org/abs/2201.11903)
+- Yao et al., *"ReAct: Synergizing Reasoning and Acting in Language Models"*, 2022. [arxiv.org](https://arxiv.org/abs/2210.03629)
 - Wang et al., *"Self-Consistency Improves Chain of Thought Reasoning in Language Models"*, 2022. [arxiv.org](https://arxiv.org/abs/2203.11171)
 - Brown et al., *"Language Models are Few-Shot Learners"*, 2020, for few-shot prompting. [arxiv.org](https://arxiv.org/abs/2005.14165)
 - Chroma, *"Context Rot: How Increasing Input Tokens Impacts LLM Performance"*, July 2025, for the finding that models do not use their context uniformly and get less reliable as input grows. [research.trychroma.com](https://research.trychroma.com/context-rot)
-- Anthropic, *"Harness design for long-running application development"*, for the same-model comparison: one prompt, Opus 4.5 both times, bare against a planner, generator, and evaluator harness. Bare produced a prototype whose core features did not work. The harnessed run produced a working application. [anthropic.com](https://www.anthropic.com/engineering/harness-design-long-running-apps)
 - Peter Steinberger, 18 July 2026, the post that put the term graph engineering into circulation: *"Are we still talking loops or did we shift to graphs yet?"* [x.com](https://x.com/steipete/status/2078277297791189132)
 
 ## Transcript
 
-The most important skill for AI engineering has shifted about 5 times just in the past few years. All the way from prompt engineering back in 2023, to graph engineering, which was just coined a few months ago.
+_Auto-generated captions from YouTube, lightly cleaned._
 
-And if you're a beginner in this space, and you've been wondering what all of these terms are, and why everything keeps changing so quickly, then this is the only video you need to understand all of these concepts, and also in the most non-overwhelming way possible.
+The most important skill for AI engineering has shifted about five times just in the past few years. All the way from prompt engineering back in 2023 to graph engineering that was coined just a few months ago. If you're a beginner in the space and you've been wondering what all of these terms are and why everything keeps changing so quickly, then this is the only video you need to understand all of these concepts and also in a very non-overwhelming and jargon-free way. The problem with most online content out there is that they treat each of these concepts as disconnected and unrelated. But in reality, they're all connected to each other and each one was literally born from the previous one.
 
-Now I think the problem with most content out there is that they make it seem like all of these are unrelated concepts, right? But in reality they're all connected to each other, and each one was literally born from the previous one.
+So in this video, we'll break down what each of these terms means, why they matter, and we'll also look at real examples for each of these concepts. So here's everything we'll cover. You can take a screenshot and keep it or the HD version is also available on my GitHub repository that's linked in the description. If you're new to this channel, I'm Aishwarya Reganti. I've been an AI researcher for more than a decade now and I have patents and publications in some of the top AI conferences.
 
-So in this video we'll break down what each of these terms means, why they matter, and we'll also look at real examples for each of the concepts. But the most important bit of this video is that we'll connect them all together, so the next time you see a new term show up you know exactly where it fits, instead of feeling like you'll have to learn everything from scratch, right.
-
-And if you're new here, I am Aishwarya Reganti. I have been an AI researcher for more than a decade now, and I have patents and publications in some of the top AI conferences. Until last year I was an AI scientist and tech lead at AWS, and I was building production systems for large enterprises. And now I run my own startup, LevelUp Labs, and we help companies and teams go AI native.
-
-So let's get started.
+Until last year, I was an AI scientist and tech lead at AWS and I was building production systems for large enterprises and now I run my own startup called LevelUp Labs and we help mid-market and enterprise companies go AI native. So, let's get started.
 
 ### Shift 1, prompt engineering
 
-Shift one is the prompt engineering shift, and it dates pretty much back to the ChatGPT moment, when ChatGPT released in November of 2022.
+So the very first shift in AI engineering is prompt engineering, right? We've all heard of it. And it dates pretty much back to the ChatGPT moment when ChatGPT was released back in November of 2022. And what people found was this was suddenly a very smart chatbot. You could pretty much ask it questions in plain English, the way you would talk to humans, and it would come back with something genuinely useful.
 
-And what people found was that this was suddenly a very smart chatbot. You could ask it something in plain English, the way you would ask a colleague, and it would come back with something genuinely useful. Write me a job description for this role. Explain this contract clause. Summarise these 4 pages. No setup, no integration, nothing to configure. And a few hundred million people met one within about 2 months.
+Write me a job description for this role. Explain this contract clause. Summarize these four pages. And it absolutely required no integration, no setup and nothing to configure, right? So people all over got excited and they start to use more and more of these kind of AI models and they start noticing some patterns which is how good an answer you get from these models really depends on how well you communicate with them.
 
-So people started using this, and they started noticing patterns. Which is that how good an answer you get really depends on how well you communicate with these models.
+For instance, let's say you asked a math question or a logical reasoning question. You had to tell the model explicitly that it should answer step by step and not rush straight to the answer. If you wanted a specific format for your meeting summary, for instance, giving it two or three examples of your format helped the model perform much better than actually describing it in language. So users started finding out a bunch of these tips and tricks for communicating with models. And turns out it became a field of its own called prompt engineering.
 
-For instance, if you asked a maths question, or a logical reasoning question, you had to tell the model explicitly that it should answer step by step, and not rush straight to the answer. If you wanted a specific format, for instance a meeting summary laid out a particular way, giving it 2 or 3 examples got you a much better result than describing what you wanted.
+And not just that through 2023 and 2024 there were so many research papers exactly on this which is essentially how do you best communicate with these models. Some of the most popular ones out there you probably heard of are chain of thought, ReAct, few-shot prompting, self-consistency, and all of that. Prompt engineering was also called the hottest job of the year and the salaries were all in the news and people were actually buying and selling prompts in marketplaces. And when this kept happening, the companies building these models, think OpenAI, Anthropic, Google and all of them started to think on how they could do something about this because prompt engineering was not a feature, it was a bug in AI models. Remember the whole promise of an AI model is that you can talk to it in human language.
 
-So people started finding a bunch of these tricks for communicating with models, and it turned into a field of its own, called prompt engineering. Through 2023 and 2024 there were so many research papers on this, all essentially asking how you best communicate with these models. Some of the popular ones you've probably heard of are chain of thought, few-shot prompting, and self-consistency.
+But if you have to learn all of these tips and tricks and this entire art of prompt engineering before you can use AI models, well, then that whole promise is gone, right? It's almost like you've rebuilt the exact wall you were trying to remove. And now there's a special language sitting between people and models. And so they said, why don't we train our models better so that they can recognize a situation themselves without doing such heavy prompt engineering? And that's pretty much what happened.
 
-Prompt engineering was also called the hottest job of the year. The salaries were in the news, and people were actually buying and selling prompts in marketplaces.
+models became much smarter at understanding humans. And today when you communicate with AI models, they will understand the situation on their own and make the right decision based on the kind of question. For instance, if it's a math question, the model knows that it has to deduce the answer step by step. If the question is about something current, it realizes that it needs to go and fetch information from the web and other examples like that. So models have generally gotten much smarter rather than humans having to overly prompt them which made the whole field matter a little less because now you don't have to become a prompt engineer.
 
-And when this kept happening, the companies building these models, so OpenAI, Anthropic, Google, all of them, started to think that they should be doing something about it.
+You can pretty much talk how you talk to humans and models have gotten smart enough to understand you. And that's exactly when the second shift arrived. And before we go into that I want you to think of this whole thing very similar to the analogy of a car. And 2022, or the year when ChatGPT was introduced, can almost be thought as the invention of the engine. Now this engine is the AI model.
 
-Because the whole promise of an AI model is that you can talk to it in human language. But if you have to learn all of these tricks first, if you have to learn prompt engineering before you can use one, then that promise is gone, right? You've rebuilt the exact wall you were trying to remove, and now there's a special language sitting in between people and models.
-
-So they said, why do we not train our models better, so they can recognise the situation themselves. And that's what happened. If you ask a good model to solve something today, it works out its own route. For instance, if it's a maths question, it decides on its own to go step by step. If it's a question about something current, it realises it needs to go and do a web search.
-
-Which made the whole field matter a little less, because now you don't have to become a prompt engineer. You can just talk in natural language, and the models are smart enough to understand you.
-
-And that's when we moved on to the next problem.
-
-Before we get to the next shift, I want you to hold this whole thing in terms of an analogy of a car. 2022 can almost be thought of as the invention of the engine. A very powerful one, with nothing attached to it. And everything that happens after this is the stuff people started bolting on, to get from an engine to a car, and eventually to the kind of cars we have today.
+It's super powerful but with no attachments to it. And everything that happened after this is what people started bolting on to get it from an engine to a fully functional car and eventually multiple different kinds of cars that we have today. It's just a fun example for you to follow along and you can draw parallels to all shifts using this analogy.
 
 ### Shift 2, context engineering
 
-Which brings us to the next shift, which is context engineering.
+Now moving on to the second shift, context engineering. Now it's early 2024 and a lot of companies have already started using these models for their own workflows and models themselves had gotten much smarter than before and it was easy to communicate with them. But then they started to realize that there's one problem to make these models work in real production use cases and that is pretty much the problem of context. What does that mean? Now remember that because models are trained on general web-scale information, information from the internet, they don't have specific information about customers within a company, their knowledge bases, their internal processes, their policies, pricing and all of this, right?
 
-Now it's early 2024, and a lot of companies had started using these models, because they were good at communicating in the way humans communicate, and they had also got much smarter. But then they realised that to make these models work inside a company, for real use cases, in production, one very important thing was missing. Which is context.
+So in order to get them to work well, you need to connect them with all of this company specific information so that they could start doing real tasks. Now remember this is also the time when AI agents started becoming really popular which are essentially systems that don't just chat but they can also do real work end to end. For example, a very popular use case in the industry is a customer support agent that can read a support ticket, look up the customer's order, their history and draft a reply for them. Or an agent that can take a client brief, pulls out the company's rate card and puts a quote together. So during that period the whole emphasis of AI engineering became can you take an AI model give it access to your ecosystem your data which is essentially your context and get it to do real work end to end and doing that is context engineering and it's not very easy to do because of three problems that AI models come with one is that their context window is limited which means models can consume only a fixed number of words each time in a particular session so you need to make sure that you give them only the right information and two which is kind of related to that is AI models are stateless which means as soon as a session ends they forget.
 
-Because these models are trained on general information. They don't know your customers, your company, your knowledge bases, your internal processes, your policies, your pricing.
+So you have to make sure that any information that they require is shared with them during that session and anything that they need to remember has to be stored somewhere outside and also retrieved on demand. And three is this idea of what researchers call as context rot which is that if you give noisy information to AI models they tend to mess up quite badly and also lose track of what's happening even when the good information is sitting right inside the context. Having a lot of noisy information distracts them. So doing all this at scale was a problem and that gave rise to this entire area of context engineering and that was supposed to be the skill to have in 2024 and 2025 and a lot of new things and advances also came out of it for instance more advanced ways for RAG or retrieval augmented generation agentic memory methods of chunking embeddings building observability and evals and all of this and if you think back to the car analogy that we were using 2024 and 2025 was the time when And the engine was given wheels, a transmission, and a frame to hold it all together. And now we had a functional car, something that moves forward and could get the job done.
 
-And this was also the time when agents became really popular. Which are systems that don't just answer, they go and do work. For instance, an agent that reads a support ticket, looks up the customer's order, and drafts a reply. Or one that takes a client brief, pulls your rate card, and puts a quote together. Or one that goes through last week's applications and flags the ones missing documents.
-
-So the whole idea of AI engineering became, can you take an AI model, give it access to your ecosystem, and get it to do work end to end.
-
-And doing that well was hard, because of 3 things.
-
-One, the context window is limited. There's only so much you can give it at a time, so you have to make sure only the right information goes in.
-
-Two, these models are stateless. As soon as a session ends, they forget. So you have to make sure that information is stored somewhere it can be retrieved again.
-
-And three, there's this thing called context rot. Which is that if you give noisy information to an AI system, it tends to mess up quite badly and lose track of what's happening, even when the good information is sitting right there inside the window.
-
-So you had to give it clean context, and the field became all about context engineering. That was the skill in 2024 and 2025, and a lot of new things came out of it. More advanced ways of doing retrieval augmented generation. Agentic memory. Methods for chunking and embeddings. And building evals on top of all of it, so you could actually tell whether it was working.
-
-So if you think of it back in the car analogy, 2024 and 2025 was the time when the engine was given wheels, a transmission, and a frame to hold it together. And now you have a functional car. Something that moves forward and gets work done. It's still a basic and early one, right? But it goes somewhere, which an engine on its own never did.
+It's still a basic and early one, but it does go somewhere. And the engine on its own could not do any of this, which is the AI model on its own could not do any of this.
 
 ### Shift 3, harness engineering
 
-Then comes the next shift, which is harness engineering, and this happens a bit into late 2025.
+Then comes our next shift, shift number three, which is harness engineering. And this happens a bit late into 2025 because by then a lot of companies had already context engineered AI systems and they were doing a lot of the work and there were also some agents in production which could do things end to end and a lot of the companies were trying to build AI systems that were far more complicated than before and they realized that we need a little more than just providing context or doing context engineering. For instance, if agents are doing long multi-step tasks, it needs to write that down somewhere so that it doesn't lose track of its progress somewhere halfway through. So builders started giving it access to a file system. And sometimes for agents to complete tasks, code had to be executed.
 
-Because by then companies already had context engineered AI systems doing a lot of work, and agents that could handle things end to end. And they started trying to build systems that were more complicated, which needed far more than just providing context.
+Like let's say you asked an agent to reconcile two spreadsheets which are pretty huge. And the most sensible way to do that is to write a small script and run it rather than reasoning through thousands of rows inside the context of the model. And in order to do that efficiently, it needed somewhere safe to run the code, which is a sandbox. And to understand why agents made certain decisions or to trace and audit their decisions, you need to build in logging and observability so that you could go back and look. And in order to make sure that the agent doesn't touch or write into high-stakes documents or environments, engineers also had to start building access control and boundaries for these agents.
 
-For instance, if you're doing multi-step work, your agent needs somewhere to write things down as it goes, so it doesn't lose its place halfway through. So people gave it a file system.
+And sometimes for very complex tasks, engineers started realizing that one agent might not be enough. So they have to build in subagents that can parallelize the task. Each of them could get their own clean context, do their bit and hand it back to the main agent. And through all of this, companies started realizing that in order to build a production worthy AI system, it's not just context. You need a lot more almost like an operating system where the AI agent can function.
 
-Sometimes, to actually finish a task, code has to be executed. For instance, you ask it to reconcile 2 spreadsheets, and the only sensible way to do that is to write a small script and run it, rather than reasoning through 4,000 rows in its head. So it needs somewhere safe to run that, which is a sandbox.
+Everything apart from the model or the whole operating system that you build around it was called a harness. And building that really well so that it works at scale is called harness engineering. And people started defining an agent as a model plus the harness around it. Now the harness can include context. It can include everything that we discussed before.
 
-And to work out why it made the decisions it made, you need logging and observability, so you can go back and look.
+But everything that's not the model was called the harness or the term that we've been using the operating system. So context engineering didn't really go away. it got absorbed into the larger discipline of harness engineering and learning how to build a good harness became the most important skill in AI engineering. So going back to our car analogy that we've been using, harness engineering is almost like building a good quality dashboard, steering so that you can monitor information, see your speed and introducing things like seat belts, crumple zones, mirrors, lights and all of that, right? So that your vehicle is just not functional but also comes with the entire operating system.
 
-And to make sure it only touches what it's allowed to touch, and doesn't email a client something nobody has read, you need access control and boundaries.
-
-There's one more, and this one matters at the end of the video, so hold onto it. When a job is too big for a single agent, it spawns smaller subagents to work on pieces in parallel. Each one gets its own clean context, does its bit, and hands back a short summary. So the main agent isn't drowning in everything all of them read.
-
-And people started realising that to build complicated AI systems, it's not just the context. It's everything around it. They had almost ended up building an operating system around the AI model.
-
-So everything apart from the model, the whole operating system you build around it, is called as the harness. And building that well is called as harness engineering.
-
-Which means an agent is the model plus the harness. And notice what that does to the last shift, because the harness includes the context, plus the operating system, plus all the boundaries you put around it. Context engineering didn't go away. It got absorbed into this.
-
-And this is the shift I would spend your time on, because the evidence on it is quite striking. Anthropic ran the same model, with the same prompt, in 2 conditions. Bare, it failed the task. With a harness around it, it finished. Same weights, same words, opposite outcome.
-
-So back in the car analogy, harness engineering is almost like building good quality steering, and a dashboard so you can see your speed, and introducing seat belts, crumple zones, mirrors, lights. All the things you build around the car so it's not just moving, it's moving safely and you can actually rely on it.
-
-And notice how those arrived on real cars. Nobody designed seat belts and crumple zones up front. Each one was added after something kept happening without it. Your harness grows the same way, one failure at a time.
+And now the next two shifts came into picture which are loop engineering and graph engineering. Now remember that these two shifts are not really fundamental change in technology but it's almost like optimization methods that people started using within the harness itself because once you have the operating system you can start playing around with it and improving the way you work with a harness.
 
 ### Shift 4, loop engineering
 
-And that's when the 2 latest shifts come into picture, which are loop engineering and graph engineering.
+So let's start with loop engineering. Right now the whole idea of loop engineering was pretty simple. Up until this point, you're still the one who's starting everything within an agent. And when I say you, it's pretty much the user. So you decide when it runs, you look at what it came back with, and then you decide what happens next.
 
-Because once you're operating inside the harness, once the operating system is already there, people started inventing newer and more optimised ways of working within it. And the first of those is loop engineering.
+And the whole idea around loop engineering was that can we remove humans out of the picture and set up agents in such a way that they can complete work on their own end to end. And while people make this sound more complex than it is, a loop is essentially five things. One is a trigger, which is whatever starts it. It can be a schedule or an event. m.
 
-Now the whole idea of loop engineering is simple. Up to this point you're still the one starting everything. You decide when it runs, you look at what came back, and you decide what happens next. That job you're doing is the loop. And loop engineering is setting up something that does it instead of you.
+every day or triggers like that. A specific goal that it can check by itself so that it actually knows when a task has been finished. It can optionally also have an eval or a checker that can check if the work is being done independently and somewhere to keep notes between runs because it can forget otherwise. And finally, a stop condition with a limit so that when an agent cannot finish some work, it doesn't keep running all night. And you can literally set up a loop on agents like Claude Code or Codex just by talking with them.
 
-And people make this sound far more complex than it is. A loop is 5 things.
+Let's do a quick example. Now, say for example, you had a pair of sneakers on Amazon that you've had your eye for for months now. Now, they're probably sitting at $250 and your budget is just $200. So, you want to keep an eye on all of the discounts on those sneakers and let your agent tell you when it falls below 200 so that you can purchase it instantly. So, I'm just going to do a forward slash loop which will start off a loop.
 
-A trigger, which is whatever starts it. A schedule, or an event, for instance a file landing in a folder.
+And you can see that Claude is asking for an interval and a prompt. The interval can be something like 2 hours so that it runs every 2 hours. I'm also going to paste the link of the shoes that I have my eyes on. going to paste it here and I'm going to say something like check this Amazon page and find the current price of these shoes. md with the date and time so that we can build up history.
 
-A goal it can check by itself, so it knows when it's actually finished.
+If the price is less than $200, then message me on Slack and stop looping. If it's still above 200, just log it and you don't have to say anything. And if the page changes or you can't find the price at all, tell me and then stop rather than guessing. That's pretty much it. So, it looks like Claude has completed the task.
 
-A checker that's separate from the thing doing the work, because anything grading its own output is far too generous with itself.
+It also has a price log file where it's logging all of the price changes and it's going to be running every 2 hours and it auto expires in 7 days. Claude does that so that you don't have loops running endlessly. So, that's pretty much it. That's your first loop and it's that easy to build loops. And if you dissect my prompt, you'll see that all of the five pieces that we discussed are sitting in that one instruction.
 
-Somewhere to keep notes between runs, because it forgets otherwise.
+When I say every 2 hours, that is the trigger. And the goal for this loop is to check if the sneakers are less than $200. And notice that it's a very specific number. It's something that's very easy to verify for the agent. Comparing the price of the sneaker to $200 is the check that we're trying to do and it's pretty straightforward in this case since it's an objective number.
 
-And a stop condition with a limit, so that when it can't finish, it stops instead of running all night.
+md file that I created is almost like the memory that the agent can use between sessions so that it doesn't forget what it did before. And then there's also stopping criteria the moment it messages you so that you're not getting pinged about sneakers that you already bought. And the last line I gave it is also kind of important especially things don't go well in the loop. So shopping websites keep changing their page layouts all the time. Sometimes they go out of stock and you don't want your agent to be eating up tokens when it's not understanding how to proceed.
 
-Here's one you can run right now, and it needs nothing set up. Say there's a pair of sneakers you've had your eye on for months. They're sitting at 250 dollars on Amazon, and you're not paying 250. You want to know the second they go under 200. All you need is the product link. Here's the exact prompt.
+So it's almost like a outlier catch to make sure that it can come back to you when it's stuck. So that's the stop condition in case things don't go right. Remember to not overuse loops because they can end up eating tokens. For instance, if I ran this for every 2 hours, those tokens are getting used by the agent and loops are notorious for eating up token costs. So you want to be careful, but it's a fun way to test it out.
 
-> /loop 1h
->
-> Check this Amazon page: [paste the link]. Find the current price of the sneakers. Append it to a file called price_log.md with the date and time, so I build up a history.
->
-> If the price is 200 dollars or less, message me straight away with the price and the link, and stop looping. If it's still above 200, just log it and don't say anything else.
->
-> And if the page changes and you can't find a price at all, tell me that and stop, rather than guessing.
+And you can do this for a lot of things that otherwise humans would be checking. for instance, changing flight prices, competitor pricing, a job board, or anything like that. Now, this is a very simple version of a loop that we built, but there's more literature and complicated use cases around the kind of loops you can build. I'll leave a few resources in the description for you. And going back to the car analogy that we've been using, loop engineering is almost like introducing self-driving cars.
 
-And that's a loop. All 5 pieces are sitting in that one instruction.
-
-Every hour is the trigger. Are the sneakers 200 or less is the goal, and notice that's a number, so it's something a machine can settle rather than an opinion. Comparing that number to your 200 is the check, so it isn't the agent deciding whether this feels like a good deal. Price log dot md is the memory between runs, and it creates that itself, so there's nothing for you to prepare, and you end up with the price history, which tells you whether they've been drifting down or holding. And it stops the moment it messages you, so you're not still getting pinged about sneakers you already bought.
-
-That last line matters too, the one about not guessing. Amazon changes their page layout all the time, and the day it does, your loop can't find the price any more. Without that line it just keeps running and quietly tells you nothing. That's your stop condition covering the case where it fails, which is the bit people forget.
-
-And the same shape works for anything you'd otherwise keep checking by hand. A competitor's pricing page, so you know the day they change it. A flight. A job board. Swap the link and swap the number.
-
-Engineers use the exact same shape to watch a deploy. Check if it finished, run the smoke tests, stop when they pass, keep checking every 5 minutes if they don't.
-
-And if you go back to the car analogy, this is almost like introducing self-driving. The operating system is already there, and all the parts are already there. So the question becomes, can we add a bit more on top so this thing drives itself?
+The operating system is already there and all the other parts are already there. you build a self-driving ecosystem around it so that you can remove a human out of the loop. All right.
 
 ### Shift 5, graph engineering
 
-And then the final shift is graph engineering.
+Now, let's discuss the final and fifth shift which is graph engineering. Now, graph engineering as a concept is super valuable when you have multiple agents working on multiple different tasks and use cases can be far more complex than just one agent completing a task end to end. Let's say you have these different agents and there are a lot of loops that you're firing. You need to build a good coordination pattern among them so that they don't get in each other's way. almost like a decision tree so that these agents can seamlessly work with each other.
 
-Now remember the subagents from the harness. Once you have a lot of those running, and a lot of loops firing, they start getting in each other's way. Two of them doing the same job. One sitting there waiting on another that hasn't finished. Something found in one place that never reaches the place that needed it.
+Now that is the whole art and science of graph engineering which is pretty much setting up a high-level structure for agents to work together so that coordination becomes less of a pain. Now this doesn't have to be just at the agent level. It could be any task. It's pretty much how you would decompose these tasks into discrete steps into a graph pretty much so that they can run seamlessly. And this starts to matter a lot more when you have complicated multi-step tasks that require a lot of agents communicating with each other or maybe the same agent doing multiple different sequential steps.
 
-So graph engineering is you setting up the structure at a higher level, so multiple agents coordinate with each other and follow the steps of a larger pipeline. Which agents exist. What each one is responsible for. What has to finish before something else can start. Where work splits to run at the same time. And where a person signs off.
+So each node in the graph can be thought of as a piece of work and arrows or the edges in the graph are pretty much what happens before and after doing something. Let's try to make it concrete with a real example, right? Because it's not that hard. It's pretty simple if you think of an example. For example, let's say I want to design a graph-based workflow in order to research content in order to make this YouTube video, right?
 
-And the reason it's called a graph is that once you draw it, that's literally what it is. Boxes, which are the agents doing a piece of work. And arrows, which are what has to happen before what.
+How AI engineering has changed from prompt engineering to graph engineering and what the shifts have been. And essentially, I want to do the research and I'll design a graph for it. And I can use anything like Claude Code to do it. I could also use agentic frameworks, but since it's a simple use case, I'm going to design my graph on Claude Code. Write me an article on how AI engineering has shifted from prompt engineering to harness engineering to graph engineering and do it in stages and use separate subagents so that they start clean.
 
-Let me make it concrete with an article writing system, because it's easy to picture.
+First, I want you to run three researchers in parallel. One that can find the primary sources and pulls out the key claims. Another one to find the numbers and notes where each number came from. And the third one to collect real examples that I can actually use in the video. And when all of these three come back, merge what they found into a single outline and flag anything the three of them would disagree on.
 
-You start with a brief. That fans out to 3 researchers running at the same time. One going through sources. One pulling the data. One collecting examples. All 3 come back into an outline node, which merges what they found. That goes to a drafter, which writes the thing. And then it goes to a critic, which is a separate agent whose only job is to judge the draft against your bar. If it passes, you're done. If it doesn't, it goes back to the drafter with notes, and round it goes again.
+Then draft the article from the outline that you get. Now take that article and use a separate critic subagent that has not seen any of the drafting. Its job is to check the draft against three things. One is every claim is supported by one of the sources. Two, every number has its source attached.
 
-And notice 2 things in that shape. The researchers run in parallel, which is the bit a loop can't do, because a loop is one thing after another. And the critic is a different agent from the drafter, which is that same maker and checker rule from the loop, drawn out where you can see it.
+Three, the piece actually answers the brief. If it fails on any of those, send it back to the drafter with the critic's notes and try again. Do this at most twice and then give me the draft and the critic's final read. So, this is pretty much in text format, but what I've ended up doing is building a graph so that my harness can execute on that graph. These are all of the notes of the graph with instructions for each one of them.
 
-Here's the exact prompt for that one.
+You can see that there are three researchers. They come up with an outline. Then, there's a drafting agent that drafts an article. And then there's a separate critic agent which makes sure that it passes all of the rubrics that I've written for it and it revises the same a couple of times before coming up with the final response for me. Now you can see that Claude Code has created three subagents or three researchers that are running in parallel currently and it's waiting for all of the results from the researchers.
 
-> Write me an article on this topic. Do it in stages, and use separate subagents so they each start clean.
->
-> First, run 3 researchers in parallel. One finds the primary sources and pulls the key claims. One finds the numbers, and notes where each number came from. One collects real examples I can actually use.
->
-> When all 3 come back, merge what they found into a single outline, and flag anything the 3 of them disagree on.
->
-> Then draft the article from that outline.
->
-> Then hand the draft to a separate critic subagent that has not seen any of the drafting. Its job is to check the draft against 3 things. Every claim is supported by one of the sources. Every number has its source attached. And the piece actually answers the brief.
->
-> If it fails any of those, send it back to the drafter with the critic's notes and try again. Do that at most twice, then give me the draft and the critic's final read.
+Now the whole point of building a graph like this is so that I can separate out context. I can parallelize work. For instance, I have three researchers working on three different threads. I also have a critic that's never seen the process of drafting so that it can be unbiased. So, I'm almost building up like a decision tree so that the quality of my article is much better than just setting it up as a prompt.
 
-And that's the whole graph, described in one instruction. The 3 researchers are your parallel branch. The outline is where they merge. The critic is a separate node with its own clean context. Send it back to the drafter is the edge that loops. And at most twice is your cap, so it can't sit there arguing with itself all afternoon.
+I'll wait for Claude to come up with an article and see how good it is compared to what I generated. But anyway, this is kind of the whole point, right? To build a graph instead of just a prompt. And this is a very simple example. You can see how the idea can scale to more complicated use cases.
 
-And in the context of cars, this is like setting up a road system. Lanes, traffic lights, right of way. None of it makes any single car better. It's there so that multiple cars can operate around each other without colliding.
+And if you go back to our analogy of cars, graph engineering is almost like setting up a road system. Think of lanes, traffic lights, right of way and all of that right now. None of that makes a single car better. It's only there so that multiple cars can operate around each other without really colliding.
 
 ### How it all connects
 
-So that's how these concepts come together. And if you look at it, each of them came from people building more and more complicated systems, and then working out tips and tricks to improve them.
+So there we are. All of the five shifts in AI engineering and also explain in a way so that they connect with each other. Hopefully this video helped you understand and break down these terms and go beyond the hype and also see why we needed each one of these. Some of these concepts just keep getting thrown around without explaining very well. But if you dig deep under, you'll realize that most of them are fundamentally just ways of either optimizing or building new layers in order to come up with solutions to existing problems.
 
-Something else will probably come up next month. And what you want to think about as an AI builder is 2 things. What problem did this come from? And what does it control that the last one did not? Which really comes down to asking whether it's an optimisation, or whether it's solving a genuinely new problem.
+Now, this is not the end of it, right? AI is a space that's growing so quickly. So, some new term will come up next month. But what I want you to think as an AI builder is pretty much two things. What problem did this new concept come from?
 
-If it solved a new problem, it's a new layer. If it's a better way of working inside something that already exists, it's an optimisation, and you can pick it up when you need it.
-
-And it's not super hard to build loops or graphs. You can actually work with your agents to build them, as long as you have the high level structure in your head, which is what this video was for.
-
-One thing I would do this week. Take one agent you already use, and work out which of those harness pieces it's missing. Most people find the same one. There's nothing checking the work except them.
-
-If you want to go deeper on the harness, the handbook and the course are linked below. See you in the next one.
+And what does it control that the last one did not? And that helps you understand if this new concept comes down to optimization or solving a new problem that comes from scaling and building more complicated AI systems. I will see you in the next video breaking down concepts so that you don't get overwhelmed. Until then, all the very best.

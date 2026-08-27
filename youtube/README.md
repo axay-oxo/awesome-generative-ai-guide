@@ -6,7 +6,7 @@ Transcripts, resources, and sources for every video on my channel.
 
 | Video | What it covers | Published |
 |---|---|---|
-| [AI Engineering Has Changed: The 5 Concepts You Need in 2026](five-shifts-ai-engineering.md) | Prompt, context, harness, loop, and graph engineering, and how each one was born from the last | 2026-08-28 |
+| [AI Engineering Has Changed: The 5 Concepts You Need in 2026](five-shifts-ai-engineering.md) | Prompt, context, harness, loop, and graph engineering, and how each one was born from the last | 2026-08-27 |
 | [Is RAG Dead?](is-rag-dead.md) | What RAG is, the 3 camps calling it dead, and which of them are right | 2026-08-18 |
 | [Building AI Agents That Actually Work](ai-automation-mistakes.md) | The 4 mistakes that waste the most time automating with AI | 2026-08-04 |
 | [Is Learning to Code Still Worth It in 2026?](learning-to-code.md) | Why every prediction of coding's death has been wrong | 2026-07-21 |
