@@ -16,7 +16,7 @@
 
 ## Resources
 
-- [AI Engineering course cohort](https://maven.com/aishwarya-kiriti/o/d4b008)
+- [Problem-First AI course cohort](https://maven.com/aishwarya-kiriti/genai-system-design)
 - [LevelUp Labs](https://levelup-labs.ai/)
 - [The Nuanced Perspective (newsletter)](https://thenuancedperspective.substack.com/)
 - [LevelUp Labs education](https://levelup-labs.ai/education)
