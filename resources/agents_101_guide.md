@@ -58,6 +58,8 @@ Modern agent evaluation combines task benchmarks (for example tau-bench and simi
 - **Reliability and robustness:** does it hold up under messy inputs and adversarial cases.
 - **Safety and trustworthiness:** does it stay within guardrails, avoid harmful actions, and behave predictably when given real-world autonomy.
 
+Hands-on practice: [Agent Amusement Park](https://agent-amusement-park.onrender.com/?src=awesome_genai_guide) is an open-source deterministic benchmark for inspecting full action trajectories across bureaucracy, negotiation, and browser interaction worlds. Every score cites the trace steps that triggered each rule. [Code](https://github.com/AgentAmusementPark/agent-amusement-park).
+
 For a full treatment, see the [AI Evals for Everyone](../free_courses/ai_evals_for_everyone/README.md) course, and [Securing Agentic AI Systems](../resources/securing_agentic_ai_systems.md) for what breaks once agents can act.
 
 ## Build Your Own Agent
@@ -76,3 +78,4 @@ Now that you understand how agents work, here are strong, current resources to b
 2. [Large Language Model based Multi-Agents: A Survey of Progress and Challenges](https://arxiv.org/pdf/2402.01680.pdf)
 3. [Introduction to LLM Agents](https://developer.nvidia.com/blog/introduction-to-llm-agents/), Nvidia
 4. The living [Agentic Search and Retrieval research table](../research_updates/agentic_search_retrieval_table.md) in this repository, updated regularly.
+
