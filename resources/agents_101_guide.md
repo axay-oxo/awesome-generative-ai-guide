@@ -78,4 +78,3 @@ Now that you understand how agents work, here are strong, current resources to b
 2. [Large Language Model based Multi-Agents: A Survey of Progress and Challenges](https://arxiv.org/pdf/2402.01680.pdf)
 3. [Introduction to LLM Agents](https://developer.nvidia.com/blog/introduction-to-llm-agents/), Nvidia
 4. The living [Agentic Search and Retrieval research table](../research_updates/agentic_search_retrieval_table.md) in this repository, updated regularly.
-
